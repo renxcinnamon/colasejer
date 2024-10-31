@@ -1,0 +1,58 @@
+//Crear un programa que permita cargar 50 valores enteros de 4 dígitos (aleatoriamente) imprimir en pantalla,
+//por cada valor calcular cuantos digitos son impares y cuantos pares (emitir un mensaje), cargar en una lista
+//implementada como cola solamente los valores que tengan 3 dígitos impares, cuyos nodos de la pila
+//poseen un valor entero y un pu.ntero al siguiente elemento. Además, imprimir la lista en pantalla y en un
+//archivo del tipo texto llamado Pilaprimo.txt. Funciones mínimas para tener en cuenta: Insertar y Mostrar o Imprimir.
+
+Puntos para considerar:
+Estructura y definición de variables
+Función Insertar
+Utilización e Archivo
+Función mostrar o Imprimir
+Lógica general
+Total
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+
+struct Nodo{
+	int dato;
+	Nodo *siguiente;
+};
+//Prototipos de la funcion
+void insertarCola (Nodo *&, Nodo *&, int);
+bool cola_vacia(Nodo *);
+
+int main(){
+	Nodo *frente = NULL;
+	Nodo *fin = NULL;
+
+    int dato;
+    cout<<"Digite un mumero: ";
+    cin>> dato;
+    
+getch();
+return 0;
+}
+//funcion para inserar elementos
+ void insertarCola (Nodo *&frente, Nodo *&fin, int n) {
+ 	Nodo *nuevo_nodo = new Nodo();
+ 	
+	nuevo_nodo -> dato = n;
+ 	nuevo_nodo ->  siguiente = NULL;
+ 	
+ 	if(cola_vacia(frente)){
+ 		frente = nuevo_nodo;
+	 }
+	 else{
+	 	fin -> siguiente = nuevo_nodo;
+	 }
+	 	fin = nuevo_nodo;
+	 	
+	 	cout<< "\tElemento "<<n<<"Insertado a la cola correctamente\n";
+ }
+ 
+ bool cola_vacia (Nodo *frente){
+ 	return (frente == NULL)? true : false;
+ }
